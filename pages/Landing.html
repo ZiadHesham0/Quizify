@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quilify</title>
+    <title>Document</title>
     <script src="../js/theme.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,10 +12,7 @@
     <link rel="stylesheet" href="../src/output.css">
 </head>
 
-<body>
-    <!-- <h1 class="text-3xl font-bold underline ">
-        Hello world!
-    </h1> -->
+<body class="flex flex-col items-center">
     <nav
         class="sticky top-0 w-full mx-auto z-50 mb-5 left-0 right-0  py-5    px-6   bg-surface border border-borderColor  flex justify-between items-center">
         <div class="flex justify-center items-center cursor-pointer">
@@ -23,8 +20,10 @@
             <h1 class=" text-2xl font-bold text-secondary">Quizify</h1>
         </div>
 
-        <div class="flex justify-center items-center">
+        <div id="nav-right" class="flex justify-center items-center">
 
+            <p id="user-welcome" class="px-2 text-secondary text-sm md:text-lg text-center" ></p>
+            
                         <div >
     <label for="theme-switcher-three" class="relative inline-flex cursor-pointer select-none items-center group">
       <input type="checkbox" name="theme-switcher-three" id="theme-switcher-three" class="sr-only" />
@@ -56,52 +55,53 @@
       </div>
     </label>
   </div>
+            <button class="btn-primary" onclick="logout()"> Logout</button>
 
-            <a href="login.html" class="hover:underline underline-offset-3 decoration-grey ">
-                <p class="text-grey mx-2">Already Have an account?</p>
-            </a>
-            <!-- <button class="btn-primary"> Login</button> -->
-            <!-- <button class="bg-primary rounded-full  border border-transparent text-white px-6 py-1.5 mx-1.5 hover:bg-transparent hover:border hover:border-primary hover:text-primary transition cursor-pointer"> Sign Up</button> -->
         </div>
 
     </nav>
-    <div id="website-container" class="w-[80%] mx-auto h-full flex flex-col items-center">
 
-        <form id="signUpForm" class="form" onsubmit="submitForm(event)">
-            <p class="text-secondary text-3xl font-bold my-3">Create your Account</p>
-            <p class="text-primary mb-3">Register and start taking quizzes now.</p>
-            <label for="username" class="label ">Username</label>
-            <input type="text" name="username" id="username" class="input" oninput="validateUsername()">
-            <span id="username-span" class="text-red-600 self-start px-3 opacity-0 select-none py-2">Username must be at least 5 characters long</span>
-            <label for="E-mail" class="label " oninput="">E-mail</label>
-            <input type="email" name="email" id="email" class="input" oninput="validateEmail()">
-            <span id="email-span" class="text-red-600 self-start px-3 opacity-0 select-none py-2">Invalid email address</span>
-            <label for="password" class="label">Password</label>
-            <input type="password" name="password" id="password" class="input" oninput="validatePassword()">
-            <span id="password-span" class="text-red-600 self-start px-3 opacity-0 select-none py-2">Password must be atleast 8 characters</span>
-            <label for="confirm-password" class="label">Confirm Password</label>
-            <input type="password" name="confirm-password" id="confirm-password" class="input"oninput="validateConfirmPassword()">
-            <span id="confirm-password-span" class="text-red-600 self-start px-3 opacity-0 select-none py-2">Passwords do not match</span>
-            <div class="flex justify-start items-center pb-4 self-start ml-2">
-                <input type="checkbox" name="agree-button" id="agree-button" class="inline">
-                <label for="agree-button" class="label ml-1 text-sm">I agree to the <a href="#"
-                        class="hover:underline text-primary ">Terms of Service</a> and <a href="#"
-                        class="hover:underline text-primary  ">Privacy Policy</a></label>
-            </div>
-            <input type="submit" id="signup-submit" class="btn-primary w-[50%] " value="Sign Up"></input>
-        </form>
-        <!-- <div class="mt-2 bg-teal-500 bg-opa  text-sm text-white rounded-lg p-4 fixed top-[12%] right-[5%]" role="alert" tabindex="-1" aria-labelledby="hs-solid-color-success-label">
-  <span id="hs-solid-color-success-label" class="font-bold">Registered ! </span>Your account was successfully created.
-</div> -->
+    <div class="w-[80%] bg-surface flex flex-col items-center drop-shadow-main rounded-2xl p-5 mb-5" id="rules-container">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-25 text-primary py-5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+        </svg>
+
+
+        <ul class="self-start mx-7 p-4 list-disc ">
+            <li class=" text-secondary  xl:text-2xl pb-3">
+                <span class="font-bold"> Read Carefully:</span> Make sure you understand each question before answering.
+            </li>
+            <li class=" text-secondary  xl:text-2xl py-3">
+                <span class="font-bold"> Time Limit:</span> Each quiz has a set time — try to complete it within the time frame.
+            </li>
+            <li class=" text-secondary  xl:text-2xl py-3">
+                <span class="font-bold">One Attempt: </span>You can only take each quiz once .
+            </li>
+            <li class=" text-secondary  xl:text-2xl py-3">
+                <span class="font-bold">
+                    No Cheating: 
+                </span>
+                Use your own knowledge — do not consult external sources or other people.
+
+            </li>
+            <li class=" text-secondary  xl:text-2xl py-3">
+                <span class="font-bold">
+                    No Refresh:
+                </span>
+                 Do not refresh the page during the quiz, or your progress may be lost.
+
+            </li>
+        </ul>
+
+        <button class="btn-primary px-10 py-3 my-3 font-bold" onclick="goToQuiz()">Start Quiz</button>
+
+
     </div>
 
-
-
-
-
-
     <script src="../js/auth-guard.js"></script>
-    <script src="../js/register.js"></script>
+    <script src="../js/landing.js"></script>
 </body>
 
 </html>
