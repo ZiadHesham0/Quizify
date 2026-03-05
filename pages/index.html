@@ -71,16 +71,16 @@
             <p class="text-secondary text-3xl font-bold my-3">Create your Account</p>
             <p class="text-primary mb-3">Register and start taking quizzes now.</p>
             <label for="username" class="label ">Username</label>
-            <input type="text" name="username" id="username" class="input" oninput="validateUsername()">
+            <input type="text" name="username" id="username" class="input focus:border-primary transition" oninput="validateUsername()">
             <span id="username-span" class="text-red-600 self-start px-3 opacity-0 select-none py-2">Username must be at least 5 characters long</span>
             <label for="E-mail" class="label " oninput="">E-mail</label>
-            <input type="email" name="email" id="email" class="input" oninput="validateEmail()">
+            <input type="email" name="email" id="email" class="input focus:border-primary transition" oninput="validateEmail()">
             <span id="email-span" class="text-red-600 self-start px-3 opacity-0 select-none py-2">Invalid email address</span>
             <label for="password" class="label">Password</label>
-            <input type="password" name="password" id="password" class="input" oninput="validatePassword()">
+            <input type="password" name="password" id="password" class="input focus:border-primary transition" oninput="validatePassword()">
             <span id="password-span" class="text-red-600 self-start px-3 opacity-0 select-none py-2">Password must be atleast 8 characters</span>
             <label for="confirm-password" class="label">Confirm Password</label>
-            <input type="password" name="confirm-password" id="confirm-password" class="input"oninput="validateConfirmPassword()">
+            <input type="password" name="confirm-password" id="confirm-password" class="input focus:border-primary transition" oninput="validateConfirmPassword()">
             <span id="confirm-password-span" class="text-red-600 self-start px-3 opacity-0 select-none py-2">Passwords do not match</span>
             <div class="flex justify-start items-center pb-4 self-start ml-2">
                 <input type="checkbox" name="agree-button" id="agree-button" class="inline">
